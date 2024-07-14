@@ -7,3 +7,11 @@ class User(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     password = models.TextField()
+
+# a model describing a user's role
+class Role(modes.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    pay = models.DecimalField(max_length=100)
+    #foreignkey to tie roles to users
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
