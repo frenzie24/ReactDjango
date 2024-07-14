@@ -7,7 +7,7 @@ const UserList = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/users/')
             .then(response => {
-                debugger;
+
                 setUsers(response.data);
             })
             .catch(error => {
@@ -20,7 +20,7 @@ const UserList = () => {
             <h1>Users</h1>
             <ul>
                 {users.map(user => (
-                    <li key={user.id}>{user.first_name}: {user.last_name}</li>
+                    <li key={user.id}>{user.email}<br></br>: {user.password}</li>
                 ))}
             </ul>
         </div>
