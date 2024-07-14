@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../App.css'
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -16,11 +17,11 @@ const UserList = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Users</h1>
-            <ul>
+        <div className='w-fit flex flex-row flex-wrap justify-center bg-sky-950 text-zinc-200 p-2 rounded-md'>
+            <h1 className='w-full text-3xl font-bold '>Users</h1>
+            <ul >
                 {users.map(user => (
-                    <li key={user.id}>{user.email}<br></br>: {user.password}</li>
+                    <li className="w-full" key={user.id}>Name: {user.first_name}{user.last_name}<br></br>Email: {user.email} </li>
                 ))}
             </ul>
         </div>
