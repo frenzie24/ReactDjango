@@ -7,6 +7,7 @@ const UserList = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/users/')
             .then(response => {
+                debugger;
                 setUsers(response.data);
             })
             .catch(error => {
