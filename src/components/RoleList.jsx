@@ -6,6 +6,10 @@ const RoleList = () => {
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
+
+
+
+
         axios.get('http://localhost:8000/api/roles/')
             .then(response => {
 
@@ -22,7 +26,9 @@ const RoleList = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Roles</th>
+                        <th></th>
+                        <th className='w-full'>Roles</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th>Name</th>
