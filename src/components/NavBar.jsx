@@ -15,7 +15,7 @@ export default function NavBar() {
 
   return (
 
-    <nav className='w-screen flex flex-row flex-wrap justify-center items-center z-50 text-white bg-gray-700 text-2xl p-1 [&_*]:rounded-sm rounded:md'>
+    <nav className='w-full flex flex-row flex-wrap justify-center items-center z-50 text-white bg-gray-700 text-2xl p-1 [&_*]:rounded-sm rounded:md'>
 
       <ul className=" flex flex-row flex-wrap justify-center items-center [&_*]:text-white [&_*]:w-fit [&_*]:bg-grey-700">
         <li className="nav-item hover:bg-gray-600 px-1">
