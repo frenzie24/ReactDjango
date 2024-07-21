@@ -21,7 +21,7 @@ const RoleList = () => {
     }, []);
 
     return (
-        <div className='w-fit flex flex-row flex-wrap justify-center bg-sky-950 text-zinc-200 p-2 rounded-md'>
+        <div className=' flex flex-row flex-wrap justify-center bg-sky-950 text-zinc-200 p-2 rounded-md'>
 
             <table>
                 <thead>
