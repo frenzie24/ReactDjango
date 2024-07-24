@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 
 const ModalComponent = ({ modalIsOpen, closeModal, modalMessage, afterOpenModal }) => {
-    debugger;
+
     return (
         <Modal
             isOpen={modalIsOpen}
@@ -35,14 +35,14 @@ const ModalComponent = ({ modalIsOpen, closeModal, modalMessage, afterOpenModal 
                   outline: 'none',
                   padding: '20px',
                   height: 'fit-content',
-                  margin: 'auto'
+                  margin: '25% auto 0 auto'
                 }
             }}
         >
-            <div className='w-full h-fit flex justify-center items-center'>
-                <div className='w-[320px] text-white bg-gray-700 flex flex-col flex-wrap items-center justify-center;'>
+            <div className='w-full h-fit p-4 flex justify-center items-center'>
+                <div className='w-[320px] text-white flex flex-col flex-wrap items-center justify-center bg-gray-700 rounded-md pt-6'>
                     <h2>{modalMessage}</h2>
-                    <button onClick={closeModal}>Close</button>
+                    <button className="group relative w-fit flex justify-center py-2 px-4 my-1 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-500 hover:outline hover:ring-2 hover:ring-offset-2 hover:ring-gray-500" onClick={closeModal}>Close</button>
                 </div>
             </div>
         </Modal>

@@ -8,11 +8,9 @@ import Register from "../components/Register";
 export default function Home() {
     const [loggedIn, setLoggedIn] = useState(false);
 
-
-
     return (
       <>
-        {loggedIn ? <Landing /> : <Register OnBackClick={()=> {return false;}}/>}
+        {loggedIn ? <Landing /> : <Login />}
       </>
     );
   }

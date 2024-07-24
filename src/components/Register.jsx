@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ModalComponent from './ModalComponent';
+import ButtonComponent from './ButtonComponent';
 
 const Register = ({ OnBackClick }) => {
 
@@ -33,55 +34,56 @@ const Register = ({ OnBackClick }) => {
   }
 
   const checkVals = () => {
-    return (firstName && lastName && email && password && confirmPassword && checkPasswordsMatch())
-  }
-  const onRegisterClick = async (ev) => {
-    ev.preventDefault();
-    console.log(checkVals());
-    /*
     if (!firstName) {
       setModalMessage('First Name is required');
       setModalIsOpen(true);
-      return;
+      return false;
     }
     if (!lastName) {
       setModalMessage('Last Name is required');
       setModalIsOpen(true);
-      return;
+      return false;
     }
     if (!email) {
       setModalMessage('Email is required');
       setModalIsOpen(true);
-      return;
+      return false;
     }
     if (!password) {
       setModalMessage('Password is required');
       setModalIsOpen(true);
-      return;
+      return false;
     }
     if (!confirmPassword) {
       setModalMessage('Confirm Password is required');
       setModalIsOpen(true);
-      return;
+      return false;
     }
     if (!checkPasswordsMatch()) {
       setModalMessage('Passwords do not match');
       setModalIsOpen(true);
-      return;
+      return false;
     }
-      */
 
-    try {
-      const response = await axios.post('http://localhost:8000/api/users/create/', {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
-      console.log(response.data);
-    } catch (error) {
-      setModalMessage('Registration failed');
-      setModalIsOpen(true);
+    return true;
+  }
+  const onRegisterClick = async (ev) => {
+    ev.preventDefault();
+    console.log(checkVals());
+
+    if (checkVals()) {
+      try {
+        const response = await axios.post('http://localhost:8000/api/users/create/', {
+          firstName,
+          lastName,
+          email,
+          password,
+        });
+        console.log(response.data);
+      } catch (error) {
+        setModalMessage('Registration failed');
+        setModalIsOpen(true);
+      }
     }
   }
 
@@ -159,10 +161,11 @@ const Register = ({ OnBackClick }) => {
         </div>
 
         <div>
-          <button type="submit" className="group relative w-full flex justify-center py-2 px-4  my-1 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={onRegisterClick}>
+        <ButtonComponent width={'full'} handleClick={onRegisterClick} text="Register" />
+          <button type="submit" className="group relative w-full flex justify-center py-2 px-4 my-1 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-500 hover:outline hover:ring-2 hover:ring-offset-2 hover:ring-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={onRegisterClick}>
             Register
           </button>
-          <button className="group relative w-full flex justify-center py-2 px-4 my-1 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={onBackClick}>
+          <button className="group relative w-full flex justify-center py-2 px-4 my-1 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-500 hover:outline hover:ring-2 hover:ring-offset-2 hover:ring-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={onBackClick}>
             Back
           </button>
         </div>
