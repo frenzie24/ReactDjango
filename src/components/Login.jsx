@@ -10,16 +10,10 @@ const Login = () => {
 
 
 
-  const handleRegisterClick  = async (ev) => {
+  const handleRegisterClick  = async (ev, ) => {
     ev.preventDefault();
 
-    const response = axios.post('http://localhost:8000/api/users/create/', {
-        first_name,
-        last_name,
-        email,
-        password,
-    });
-    console.log(response.data);
+
     setRegistration(true);
   };
 
