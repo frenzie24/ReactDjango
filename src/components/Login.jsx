@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Register from './Register';
 import axios from 'axios';
 const Login = () => {
-  const [registration, setRegistration] = useState(false);
+  const [registering, setRegistering] = useState(false);
 
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
 
 
@@ -14,22 +12,22 @@ const Login = () => {
     ev.preventDefault();
 
 
-    setRegistration(true);
+    setRegistering(true);
   };
 
   // if the user decides they don't want to register anymore
   const onBackClick = () => {
-    setRegistration(false);
+    setRegistering(false);
   }
 
 
   useEffect(()=>{
-    console.log('Registration')
-  }, [registration])
+    console.log('registering')
+  }, [registering])
 
   return (
     <>
-    {!registration ?
+    {!registering ?
 
       <div className="max-w-md w-full space-y-8">
         <div>
@@ -61,7 +59,7 @@ const Login = () => {
         </form>
       </div>
    :<>
-      <Register OnBackClick={onBackClick} handleRegisterClick={handleRegisterClick}/>
+      <Register OnBackClick={onBackClick} />
     </>}
 
     </>

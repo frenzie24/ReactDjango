@@ -11,7 +11,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='lg:max-w-screen-lg md:max-w-screen-sm sm:max-w-[300px] bg-gray-200'>
+    <div className='w-screen h-screen bg-gray-950'>
+    <div className='lg:max-w-screen-lg md:max-w-screen-sm sm:max-w-[300px] h-screen bg-gray-200 mx-auto'>
       <div className='flex flex-row flex-wrap justify-center '>
         <NavBar />
       </div>
@@ -20,7 +21,7 @@ function App() {
         <Outlet />
 
       </div>
-
+    </div>
     </div>
   )
 }

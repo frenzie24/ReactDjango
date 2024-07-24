@@ -12,7 +12,7 @@ export default function Home() {
 
     return (
       <>
-        {loggedIn ? <Landing /> : <Login />}
+        {loggedIn ? <Landing /> : <Register OnBackClick={()=> {return false;}}/>}
       </>
     );
   }
