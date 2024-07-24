@@ -11,8 +11,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='flex flex-row flex-wrap justify-center'>
+    <div className='lg:max-w-screen-lg md:max-w-screen-sm sm:max-w-[300px] bg-gray-200'>
+      <div className='flex flex-row flex-wrap justify-center '>
         <NavBar />
       </div>
       <div className='flex flex-row flex-wrap justify-center p-4'>
@@ -21,7 +21,7 @@ function App() {
 
       </div>
 
-    </>
+    </div>
   )
 }
 

@@ -1,14 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import Register from './Register';
-
+import axios from 'axios';
 const Login = () => {
   const [registration, setRegistration] = useState(false);
 
-  const handleRegisterClick = (ev) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+
+  const handleRegisterClick  = async (ev) => {
     ev.preventDefault();
 
+    const response = axios.post('http://localhost:8000/api/users/create/', {
+        first_name,
+        last_name,
+        email,
+        password,
+    });
+    console.log(response.data);
     setRegistration(true);
+  };
+
+  // if the user decides they don't want to register anymore
+  const onBackClick = () => {
+    setRegistration(false);
   }
+
 
   useEffect(()=>{
     console.log('Registration')
@@ -17,7 +36,7 @@ const Login = () => {
   return (
     <>
     {!registration ?
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -47,8 +66,8 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </div>:<>
-      <Register />
+   :<>
+      <Register OnBackClick={onBackClick} handleRegisterClick={handleRegisterClick}/>
     </>}
 
     </>

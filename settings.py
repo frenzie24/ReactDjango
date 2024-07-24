@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'api',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# MEDIA
+#MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+#MEDIA_URL='/media'
+
+LOGIN_REDIRECT_URL='index'
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='stmp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+
+## email id
+EMAIL_HOST_USER='kevincharlesgross@gmail.com'
+EMAIL_HOST_PASSWORD='Galvy5462!'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -132,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-
+    "http://localhost:5173"
     "http://localhost:8000",
     "http://127.0.0.1:9000",
 ]

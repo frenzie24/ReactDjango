@@ -21,4 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #including the api serverrrrrrrrrr
     path('api/', include('api.urls')),
+    path('login/', user_view.Login, name ='login'),
+    path('logout/', auth.LogoutView.as_view(template_name ='user/index.html'), name ='logout'),
+    path('register/', user_view.register, name ='register'),
 ]
